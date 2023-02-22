@@ -1,4 +1,4 @@
-(function () {
+const GameBoard = (() => {
   const X_CLASS = "x";
   const CIRCLE_CLASS = "circle";
   const cellElements = document.querySelectorAll("[data-cell]");
@@ -16,12 +16,12 @@
     [2, 4, 6],
   ];
 
-  const startGame = (() => {
+  function startGame() {
     cellElements.forEach((cell) => {
       cell.addEventListener("click", handleClick, { once: true });
     });
     setBoardHoverClass();
-  })();
+  }
 
   function handleClick(e) {
     const cell = e.target;
@@ -79,4 +79,10 @@
     winningMessage.classList.remove("show");
     startGame();
   }
+
+  return {
+    startGame,
+  };
 })();
+
+GameBoard.startGame();
