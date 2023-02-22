@@ -3,6 +3,7 @@ const CIRCLE_CLASS = "circle";
 const cellElements = document.querySelectorAll("[data-cell]");
 let circleTurn = false;
 const board = document.querySelector("#board");
+const winningMessage = document.querySelector("#winningMessage");
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -61,6 +62,19 @@ function checkWin(currentClass) {
     elem.every((item) => checked.includes(item))
   );
   if (victory) {
-    document.querySelector("#winningMessage").classList.add("show");
+    winningMessage.classList.add("show");
+    document.querySelector("[data-winning-message-text]").textContent = `
+    ${currentClass} won!
+    `;
+    document.querySelector("#restartButton").addEventListener("click", restart);
   }
+}
+
+function restart() {
+  cellElements.forEach((elem) => {
+    elem.classList.remove(CIRCLE_CLASS);
+    elem.classList.remove(X_CLASS);
+  });
+  winningMessage.classList.remove("show");
+  startGame();
 }

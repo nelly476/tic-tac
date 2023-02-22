@@ -143,4 +143,5 @@ body {
 
 .winning-message.show {
   display: flex;
+  flex-direction: column;
 }
