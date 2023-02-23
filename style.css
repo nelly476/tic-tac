@@ -11,11 +11,20 @@
 
 body {
   margin: 0;
+  background-color: #f99317c1;
+  font-family: "Satisfy", cursive;
+}
+
+h1 {
+  text-align: center;
+  color: #f94a29;
+  font-size: 4rem;
+  margin-bottom: 1em;
 }
 
 .board {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   display: grid;
   justify-content: center;
   align-content: center;
