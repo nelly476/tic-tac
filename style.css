@@ -5,7 +5,7 @@
 }
 
 :root {
-  --cell-size: 100px;
+  --cell-size: 120px;
   --mark-size: calc(var(--cell-size) * 0.9);
 }
 
@@ -72,13 +72,13 @@ h1 {
 .cell.x::before,
 .cell.x::after,
 .cell.circle::before {
-  background-color: black;
+  background-color: #f94a29;
 }
 
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before {
-  background-color: lightgrey;
+  background-color: rgba(255, 255, 255, 0.814);
 }
 
 .cell.x::before,
@@ -120,7 +120,7 @@ h1 {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
-  background-color: white;
+  background-color: #f99317c1;
 }
 
 .winning-message {

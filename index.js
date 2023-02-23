@@ -52,14 +52,27 @@ const GameBoard = (() => {
 
   function checkWin(currentClass) {
     let checked = [];
+
     cellElements.forEach((cell, index) => {
       if (cell.classList.contains(currentClass)) {
         checked.push(index);
       }
     });
+
     let victory = WINNING_COMBINATIONS.find((elem) =>
       elem.every((item) => checked.includes(item))
     );
+
+    let markedCells = [];
+    cellElements.forEach((cell) => {
+      if (
+        cell.classList.contains(X_CLASS) ||
+        cell.classList.contains(CIRCLE_CLASS)
+      ) {
+        markedCells.push(cell);
+      }
+    });
+
     if (victory) {
       winningMessage.classList.add("show");
       document.querySelector("[data-winning-message-text]").textContent = `
@@ -68,6 +81,11 @@ const GameBoard = (() => {
       document
         .querySelector("#restartButton")
         .addEventListener("click", restart);
+    } else if (markedCells.length === 9) {
+      winningMessage.classList.add("show");
+      document.querySelector("[data-winning-message-text]").textContent = `
+    It's a tie!
+    `;
     }
   }
 
