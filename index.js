@@ -98,9 +98,9 @@ const GameBoard = (() => {
     startGame();
   }
 
-  return {
-    startGame,
-  };
+  startGame();
+
+  return {};
 })();
 
-GameBoard.startGame();
+// GameBoard.startGame();
